@@ -1,0 +1,1095 @@
+#######
+#.E...#
+#.#..G#
+#.###.#
+#E#G#G#
+#...#G#
+#######
+ 
+units:  [['E', 2, 1, 1, 200], ['G', 5, 2, 2, 200], ['E', 1, 4, 3, 200], ['G', 3, 4, 4, 200], ['G', 5, 4, 5, 200], ['G', 5, 5, 6, 200]]
+combat_round:  1
+units:  [['E', 2, 1, 1, 200], ['G', 5, 2, 2, 200], ['E', 1, 4, 3, 200], ['G', 3, 4, 4, 200], ['G', 5, 4, 5, 200], ['G', 5, 5, 6, 200]]
+unit  ['E', 2, 1, 1, 200]  moves  R
+unit  ['G', 5, 2, 2, 200]  moves  U
+unit  ['E', 1, 4, 3, 200]  moves  D
+unit  ['G', 3, 4, 4, 200]  moves  D
+unit  ['G', 5, 4, 5, 200]  moves  U
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#..E.G#
+#.#...#
+#.###G#
+#.#.#.#
+#E.G#G#
+#######
+ 
+combat_round:  2
+units:  [['E', 3, 1, 1, 200], ['G', 5, 1, 2, 200], ['G', 5, 3, 5, 200], ['E', 1, 5, 3, 200], ['G', 3, 5, 4, 200], ['G', 5, 5, 6, 200]]
+unit  ['E', 3, 1, 1, 200]  moves  R
+unit  ['E', 4, 1, 1, 200]  fights against unit  1
+unit  ['G', 5, 1, 2, 197]  fights against unit  0
+unit  ['G', 5, 1, 2, 197]  moves  None
+unit  ['G', 5, 3, 5, 200]  moves  U
+unit  ['E', 1, 5, 3, 200]  moves  R
+unit  ['E', 2, 5, 3, 200]  fights against unit  4
+unit  ['G', 3, 5, 4, 197]  fights against unit  3
+unit  ['G', 3, 5, 4, 197]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#..G#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  3
+units:  [['E', 4, 1, 1, 197], ['G', 5, 1, 2, 197], ['G', 5, 2, 5, 200], ['E', 2, 5, 3, 197], ['G', 3, 5, 4, 197], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 197]  fights against unit  1
+unit  ['E', 4, 1, 1, 197]  moves  None
+unit  ['G', 5, 1, 2, 194]  fights against unit  0
+unit  ['G', 5, 1, 2, 194]  moves  None
+unit  ['G', 5, 2, 5, 200]  moves  L
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['E', 2, 5, 3, 197]  fights against unit  4
+unit  ['E', 2, 5, 3, 197]  moves  None
+unit  ['G', 3, 5, 4, 194]  fights against unit  3
+unit  ['G', 3, 5, 4, 194]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  4
+units:  [['E', 4, 1, 1, 191], ['G', 5, 1, 2, 194], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 194], ['G', 3, 5, 4, 194], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 191]  fights against unit  1
+unit  ['E', 4, 1, 1, 191]  moves  None
+unit  ['G', 5, 1, 2, 191]  fights against unit  0
+unit  ['G', 5, 1, 2, 191]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 194]  fights against unit  4
+unit  ['E', 2, 5, 3, 194]  moves  None
+unit  ['G', 3, 5, 4, 191]  fights against unit  3
+unit  ['G', 3, 5, 4, 191]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  5
+units:  [['E', 4, 1, 1, 185], ['G', 5, 1, 2, 191], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 191], ['G', 3, 5, 4, 191], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 185]  fights against unit  1
+unit  ['E', 4, 1, 1, 185]  moves  None
+unit  ['G', 5, 1, 2, 188]  fights against unit  0
+unit  ['G', 5, 1, 2, 188]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 191]  fights against unit  4
+unit  ['E', 2, 5, 3, 191]  moves  None
+unit  ['G', 3, 5, 4, 188]  fights against unit  3
+unit  ['G', 3, 5, 4, 188]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  6
+units:  [['E', 4, 1, 1, 179], ['G', 5, 1, 2, 188], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 188], ['G', 3, 5, 4, 188], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 179]  fights against unit  1
+unit  ['E', 4, 1, 1, 179]  moves  None
+unit  ['G', 5, 1, 2, 185]  fights against unit  0
+unit  ['G', 5, 1, 2, 185]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 188]  fights against unit  4
+unit  ['E', 2, 5, 3, 188]  moves  None
+unit  ['G', 3, 5, 4, 185]  fights against unit  3
+unit  ['G', 3, 5, 4, 185]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  7
+units:  [['E', 4, 1, 1, 173], ['G', 5, 1, 2, 185], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 185], ['G', 3, 5, 4, 185], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 173]  fights against unit  1
+unit  ['E', 4, 1, 1, 173]  moves  None
+unit  ['G', 5, 1, 2, 182]  fights against unit  0
+unit  ['G', 5, 1, 2, 182]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 185]  fights against unit  4
+unit  ['E', 2, 5, 3, 185]  moves  None
+unit  ['G', 3, 5, 4, 182]  fights against unit  3
+unit  ['G', 3, 5, 4, 182]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  8
+units:  [['E', 4, 1, 1, 167], ['G', 5, 1, 2, 182], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 182], ['G', 3, 5, 4, 182], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 167]  fights against unit  1
+unit  ['E', 4, 1, 1, 167]  moves  None
+unit  ['G', 5, 1, 2, 179]  fights against unit  0
+unit  ['G', 5, 1, 2, 179]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 182]  fights against unit  4
+unit  ['E', 2, 5, 3, 182]  moves  None
+unit  ['G', 3, 5, 4, 179]  fights against unit  3
+unit  ['G', 3, 5, 4, 179]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  9
+units:  [['E', 4, 1, 1, 161], ['G', 5, 1, 2, 179], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 179], ['G', 3, 5, 4, 179], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 161]  fights against unit  1
+unit  ['E', 4, 1, 1, 161]  moves  None
+unit  ['G', 5, 1, 2, 176]  fights against unit  0
+unit  ['G', 5, 1, 2, 176]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 179]  fights against unit  4
+unit  ['E', 2, 5, 3, 179]  moves  None
+unit  ['G', 3, 5, 4, 176]  fights against unit  3
+unit  ['G', 3, 5, 4, 176]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  10
+units:  [['E', 4, 1, 1, 155], ['G', 5, 1, 2, 176], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 176], ['G', 3, 5, 4, 176], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 155]  fights against unit  1
+unit  ['E', 4, 1, 1, 155]  moves  None
+unit  ['G', 5, 1, 2, 173]  fights against unit  0
+unit  ['G', 5, 1, 2, 173]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 176]  fights against unit  4
+unit  ['E', 2, 5, 3, 176]  moves  None
+unit  ['G', 3, 5, 4, 173]  fights against unit  3
+unit  ['G', 3, 5, 4, 173]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  11
+units:  [['E', 4, 1, 1, 149], ['G', 5, 1, 2, 173], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 173], ['G', 3, 5, 4, 173], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 149]  fights against unit  1
+unit  ['E', 4, 1, 1, 149]  moves  None
+unit  ['G', 5, 1, 2, 170]  fights against unit  0
+unit  ['G', 5, 1, 2, 170]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 173]  fights against unit  4
+unit  ['E', 2, 5, 3, 173]  moves  None
+unit  ['G', 3, 5, 4, 170]  fights against unit  3
+unit  ['G', 3, 5, 4, 170]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  12
+units:  [['E', 4, 1, 1, 143], ['G', 5, 1, 2, 170], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 170], ['G', 3, 5, 4, 170], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 143]  fights against unit  1
+unit  ['E', 4, 1, 1, 143]  moves  None
+unit  ['G', 5, 1, 2, 167]  fights against unit  0
+unit  ['G', 5, 1, 2, 167]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 170]  fights against unit  4
+unit  ['E', 2, 5, 3, 170]  moves  None
+unit  ['G', 3, 5, 4, 167]  fights against unit  3
+unit  ['G', 3, 5, 4, 167]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  13
+units:  [['E', 4, 1, 1, 137], ['G', 5, 1, 2, 167], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 167], ['G', 3, 5, 4, 167], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 137]  fights against unit  1
+unit  ['E', 4, 1, 1, 137]  moves  None
+unit  ['G', 5, 1, 2, 164]  fights against unit  0
+unit  ['G', 5, 1, 2, 164]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 167]  fights against unit  4
+unit  ['E', 2, 5, 3, 167]  moves  None
+unit  ['G', 3, 5, 4, 164]  fights against unit  3
+unit  ['G', 3, 5, 4, 164]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  14
+units:  [['E', 4, 1, 1, 131], ['G', 5, 1, 2, 164], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 164], ['G', 3, 5, 4, 164], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 131]  fights against unit  1
+unit  ['E', 4, 1, 1, 131]  moves  None
+unit  ['G', 5, 1, 2, 161]  fights against unit  0
+unit  ['G', 5, 1, 2, 161]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 164]  fights against unit  4
+unit  ['E', 2, 5, 3, 164]  moves  None
+unit  ['G', 3, 5, 4, 161]  fights against unit  3
+unit  ['G', 3, 5, 4, 161]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  15
+units:  [['E', 4, 1, 1, 125], ['G', 5, 1, 2, 161], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 161], ['G', 3, 5, 4, 161], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 125]  fights against unit  1
+unit  ['E', 4, 1, 1, 125]  moves  None
+unit  ['G', 5, 1, 2, 158]  fights against unit  0
+unit  ['G', 5, 1, 2, 158]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 161]  fights against unit  4
+unit  ['E', 2, 5, 3, 161]  moves  None
+unit  ['G', 3, 5, 4, 158]  fights against unit  3
+unit  ['G', 3, 5, 4, 158]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  16
+units:  [['E', 4, 1, 1, 119], ['G', 5, 1, 2, 158], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 158], ['G', 3, 5, 4, 158], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 119]  fights against unit  1
+unit  ['E', 4, 1, 1, 119]  moves  None
+unit  ['G', 5, 1, 2, 155]  fights against unit  0
+unit  ['G', 5, 1, 2, 155]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 158]  fights against unit  4
+unit  ['E', 2, 5, 3, 158]  moves  None
+unit  ['G', 3, 5, 4, 155]  fights against unit  3
+unit  ['G', 3, 5, 4, 155]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  17
+units:  [['E', 4, 1, 1, 113], ['G', 5, 1, 2, 155], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 155], ['G', 3, 5, 4, 155], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 113]  fights against unit  1
+unit  ['E', 4, 1, 1, 113]  moves  None
+unit  ['G', 5, 1, 2, 152]  fights against unit  0
+unit  ['G', 5, 1, 2, 152]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 155]  fights against unit  4
+unit  ['E', 2, 5, 3, 155]  moves  None
+unit  ['G', 3, 5, 4, 152]  fights against unit  3
+unit  ['G', 3, 5, 4, 152]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  18
+units:  [['E', 4, 1, 1, 107], ['G', 5, 1, 2, 152], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 152], ['G', 3, 5, 4, 152], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 107]  fights against unit  1
+unit  ['E', 4, 1, 1, 107]  moves  None
+unit  ['G', 5, 1, 2, 149]  fights against unit  0
+unit  ['G', 5, 1, 2, 149]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 152]  fights against unit  4
+unit  ['E', 2, 5, 3, 152]  moves  None
+unit  ['G', 3, 5, 4, 149]  fights against unit  3
+unit  ['G', 3, 5, 4, 149]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  19
+units:  [['E', 4, 1, 1, 101], ['G', 5, 1, 2, 149], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 149], ['G', 3, 5, 4, 149], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 101]  fights against unit  1
+unit  ['E', 4, 1, 1, 101]  moves  None
+unit  ['G', 5, 1, 2, 146]  fights against unit  0
+unit  ['G', 5, 1, 2, 146]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 149]  fights against unit  4
+unit  ['E', 2, 5, 3, 149]  moves  None
+unit  ['G', 3, 5, 4, 146]  fights against unit  3
+unit  ['G', 3, 5, 4, 146]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  20
+units:  [['E', 4, 1, 1, 95], ['G', 5, 1, 2, 146], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 146], ['G', 3, 5, 4, 146], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 95]  fights against unit  1
+unit  ['E', 4, 1, 1, 95]  moves  None
+unit  ['G', 5, 1, 2, 143]  fights against unit  0
+unit  ['G', 5, 1, 2, 143]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 146]  fights against unit  4
+unit  ['E', 2, 5, 3, 146]  moves  None
+unit  ['G', 3, 5, 4, 143]  fights against unit  3
+unit  ['G', 3, 5, 4, 143]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  21
+units:  [['E', 4, 1, 1, 89], ['G', 5, 1, 2, 143], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 143], ['G', 3, 5, 4, 143], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 89]  fights against unit  1
+unit  ['E', 4, 1, 1, 89]  moves  None
+unit  ['G', 5, 1, 2, 140]  fights against unit  0
+unit  ['G', 5, 1, 2, 140]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 143]  fights against unit  4
+unit  ['E', 2, 5, 3, 143]  moves  None
+unit  ['G', 3, 5, 4, 140]  fights against unit  3
+unit  ['G', 3, 5, 4, 140]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  22
+units:  [['E', 4, 1, 1, 83], ['G', 5, 1, 2, 140], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 140], ['G', 3, 5, 4, 140], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 83]  fights against unit  1
+unit  ['E', 4, 1, 1, 83]  moves  None
+unit  ['G', 5, 1, 2, 137]  fights against unit  0
+unit  ['G', 5, 1, 2, 137]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 140]  fights against unit  4
+unit  ['E', 2, 5, 3, 140]  moves  None
+unit  ['G', 3, 5, 4, 137]  fights against unit  3
+unit  ['G', 3, 5, 4, 137]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  23
+units:  [['E', 4, 1, 1, 77], ['G', 5, 1, 2, 137], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 137], ['G', 3, 5, 4, 137], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 77]  fights against unit  1
+unit  ['E', 4, 1, 1, 77]  moves  None
+unit  ['G', 5, 1, 2, 134]  fights against unit  0
+unit  ['G', 5, 1, 2, 134]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 137]  fights against unit  4
+unit  ['E', 2, 5, 3, 137]  moves  None
+unit  ['G', 3, 5, 4, 134]  fights against unit  3
+unit  ['G', 3, 5, 4, 134]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  24
+units:  [['E', 4, 1, 1, 71], ['G', 5, 1, 2, 134], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 134], ['G', 3, 5, 4, 134], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 71]  fights against unit  1
+unit  ['E', 4, 1, 1, 71]  moves  None
+unit  ['G', 5, 1, 2, 131]  fights against unit  0
+unit  ['G', 5, 1, 2, 131]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 134]  fights against unit  4
+unit  ['E', 2, 5, 3, 134]  moves  None
+unit  ['G', 3, 5, 4, 131]  fights against unit  3
+unit  ['G', 3, 5, 4, 131]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  25
+units:  [['E', 4, 1, 1, 65], ['G', 5, 1, 2, 131], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 131], ['G', 3, 5, 4, 131], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 65]  fights against unit  1
+unit  ['E', 4, 1, 1, 65]  moves  None
+unit  ['G', 5, 1, 2, 128]  fights against unit  0
+unit  ['G', 5, 1, 2, 128]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 131]  fights against unit  4
+unit  ['E', 2, 5, 3, 131]  moves  None
+unit  ['G', 3, 5, 4, 128]  fights against unit  3
+unit  ['G', 3, 5, 4, 128]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  26
+units:  [['E', 4, 1, 1, 59], ['G', 5, 1, 2, 128], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 128], ['G', 3, 5, 4, 128], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 59]  fights against unit  1
+unit  ['E', 4, 1, 1, 59]  moves  None
+unit  ['G', 5, 1, 2, 125]  fights against unit  0
+unit  ['G', 5, 1, 2, 125]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 128]  fights against unit  4
+unit  ['E', 2, 5, 3, 128]  moves  None
+unit  ['G', 3, 5, 4, 125]  fights against unit  3
+unit  ['G', 3, 5, 4, 125]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  27
+units:  [['E', 4, 1, 1, 53], ['G', 5, 1, 2, 125], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 125], ['G', 3, 5, 4, 125], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 53]  fights against unit  1
+unit  ['E', 4, 1, 1, 53]  moves  None
+unit  ['G', 5, 1, 2, 122]  fights against unit  0
+unit  ['G', 5, 1, 2, 122]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 125]  fights against unit  4
+unit  ['E', 2, 5, 3, 125]  moves  None
+unit  ['G', 3, 5, 4, 122]  fights against unit  3
+unit  ['G', 3, 5, 4, 122]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  28
+units:  [['E', 4, 1, 1, 47], ['G', 5, 1, 2, 122], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 122], ['G', 3, 5, 4, 122], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 47]  fights against unit  1
+unit  ['E', 4, 1, 1, 47]  moves  None
+unit  ['G', 5, 1, 2, 119]  fights against unit  0
+unit  ['G', 5, 1, 2, 119]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 122]  fights against unit  4
+unit  ['E', 2, 5, 3, 122]  moves  None
+unit  ['G', 3, 5, 4, 119]  fights against unit  3
+unit  ['G', 3, 5, 4, 119]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  29
+units:  [['E', 4, 1, 1, 41], ['G', 5, 1, 2, 119], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 119], ['G', 3, 5, 4, 119], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 41]  fights against unit  1
+unit  ['E', 4, 1, 1, 41]  moves  None
+unit  ['G', 5, 1, 2, 116]  fights against unit  0
+unit  ['G', 5, 1, 2, 116]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 119]  fights against unit  4
+unit  ['E', 2, 5, 3, 119]  moves  None
+unit  ['G', 3, 5, 4, 116]  fights against unit  3
+unit  ['G', 3, 5, 4, 116]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  30
+units:  [['E', 4, 1, 1, 35], ['G', 5, 1, 2, 116], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 116], ['G', 3, 5, 4, 116], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 35]  fights against unit  1
+unit  ['E', 4, 1, 1, 35]  moves  None
+unit  ['G', 5, 1, 2, 113]  fights against unit  0
+unit  ['G', 5, 1, 2, 113]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 116]  fights against unit  4
+unit  ['E', 2, 5, 3, 116]  moves  None
+unit  ['G', 3, 5, 4, 113]  fights against unit  3
+unit  ['G', 3, 5, 4, 113]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  31
+units:  [['E', 4, 1, 1, 29], ['G', 5, 1, 2, 113], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 113], ['G', 3, 5, 4, 113], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 29]  fights against unit  1
+unit  ['E', 4, 1, 1, 29]  moves  None
+unit  ['G', 5, 1, 2, 110]  fights against unit  0
+unit  ['G', 5, 1, 2, 110]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 113]  fights against unit  4
+unit  ['E', 2, 5, 3, 113]  moves  None
+unit  ['G', 3, 5, 4, 110]  fights against unit  3
+unit  ['G', 3, 5, 4, 110]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  32
+units:  [['E', 4, 1, 1, 23], ['G', 5, 1, 2, 110], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 110], ['G', 3, 5, 4, 110], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 23]  fights against unit  1
+unit  ['E', 4, 1, 1, 23]  moves  None
+unit  ['G', 5, 1, 2, 107]  fights against unit  0
+unit  ['G', 5, 1, 2, 107]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 110]  fights against unit  4
+unit  ['E', 2, 5, 3, 110]  moves  None
+unit  ['G', 3, 5, 4, 107]  fights against unit  3
+unit  ['G', 3, 5, 4, 107]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  33
+units:  [['E', 4, 1, 1, 17], ['G', 5, 1, 2, 107], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 107], ['G', 3, 5, 4, 107], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 17]  fights against unit  1
+unit  ['E', 4, 1, 1, 17]  moves  None
+unit  ['G', 5, 1, 2, 104]  fights against unit  0
+unit  ['G', 5, 1, 2, 104]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 107]  fights against unit  4
+unit  ['E', 2, 5, 3, 107]  moves  None
+unit  ['G', 3, 5, 4, 104]  fights against unit  3
+unit  ['G', 3, 5, 4, 104]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  34
+units:  [['E', 4, 1, 1, 11], ['G', 5, 1, 2, 104], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 104], ['G', 3, 5, 4, 104], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 11]  fights against unit  1
+unit  ['E', 4, 1, 1, 11]  moves  None
+unit  ['G', 5, 1, 2, 101]  fights against unit  0
+unit  ['G', 5, 1, 2, 101]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 104]  fights against unit  4
+unit  ['E', 2, 5, 3, 104]  moves  None
+unit  ['G', 3, 5, 4, 101]  fights against unit  3
+unit  ['G', 3, 5, 4, 101]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...EG#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  35
+units:  [['E', 4, 1, 1, 5], ['G', 5, 1, 2, 101], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 101], ['G', 3, 5, 4, 101], ['G', 5, 5, 6, 200]]
+unit  ['E', 4, 1, 1, 5]  fights against unit  1
+unit  ['E', 4, 1, 1, 5]  moves  None
+unit  ['G', 5, 1, 2, 98]  fights against unit  0
+unit  ['G', 5, 1, 2, 98]  moves  None
+unit  ['G', 4, 2, 5, 200]  fights against unit  0
+unit  ['G', 4, 2, 5, 200]  moves  None
+length of dead array:  1
+xdead, ydead:  4 1
+unit  ['G', 3, 5, 4, 101]  fights against unit  2
+unit  ['G', 3, 5, 4, 101]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#....G#
+#.#.G.#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  36
+units:  [['G', 5, 1, 2, 98], ['G', 4, 2, 5, 200], ['E', 2, 5, 3, 98], ['G', 3, 5, 4, 101], ['G', 5, 5, 6, 200]]
+unit  ['G', 5, 1, 2, 98]  moves  L
+unit  ['G', 4, 2, 5, 200]  moves  L
+unit  ['E', 2, 5, 3, 98]  fights against unit  3
+unit  ['E', 2, 5, 3, 98]  moves  None
+unit  ['G', 3, 5, 4, 98]  fights against unit  2
+unit  ['G', 3, 5, 4, 98]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#...G.#
+#.#G..#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  37
+units:  [['G', 4, 1, 2, 98], ['G', 3, 2, 5, 200], ['E', 2, 5, 3, 95], ['G', 3, 5, 4, 98], ['G', 5, 5, 6, 200]]
+unit  ['G', 4, 1, 2, 98]  moves  L
+unit  ['G', 3, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 95]  fights against unit  3
+unit  ['E', 2, 5, 3, 95]  moves  None
+unit  ['G', 3, 5, 4, 95]  fights against unit  2
+unit  ['G', 3, 5, 4, 95]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#..G..#
+#.#G..#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  38
+units:  [['G', 3, 1, 2, 98], ['G', 3, 2, 5, 200], ['E', 2, 5, 3, 92], ['G', 3, 5, 4, 95], ['G', 5, 5, 6, 200]]
+unit  ['G', 3, 1, 2, 98]  moves  L
+unit  ['G', 3, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 92]  fights against unit  3
+unit  ['E', 2, 5, 3, 92]  moves  None
+unit  ['G', 3, 5, 4, 92]  fights against unit  2
+unit  ['G', 3, 5, 4, 92]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#.G...#
+#.#G..#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  39
+units:  [['G', 2, 1, 2, 98], ['G', 3, 2, 5, 200], ['E', 2, 5, 3, 89], ['G', 3, 5, 4, 92], ['G', 5, 5, 6, 200]]
+unit  ['G', 2, 1, 2, 98]  moves  L
+unit  ['G', 3, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 89]  fights against unit  3
+unit  ['E', 2, 5, 3, 89]  moves  None
+unit  ['G', 3, 5, 4, 89]  fights against unit  2
+unit  ['G', 3, 5, 4, 89]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#G....#
+#.#G..#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  40
+units:  [['G', 1, 1, 2, 98], ['G', 3, 2, 5, 200], ['E', 2, 5, 3, 86], ['G', 3, 5, 4, 89], ['G', 5, 5, 6, 200]]
+unit  ['G', 1, 1, 2, 98]  moves  D
+unit  ['G', 3, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 86]  fights against unit  3
+unit  ['E', 2, 5, 3, 86]  moves  None
+unit  ['G', 3, 5, 4, 86]  fights against unit  2
+unit  ['G', 3, 5, 4, 86]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#.....#
+#G#G..#
+#.###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  41
+units:  [['G', 1, 2, 2, 98], ['G', 3, 2, 5, 200], ['E', 2, 5, 3, 83], ['G', 3, 5, 4, 86], ['G', 5, 5, 6, 200]]
+unit  ['G', 1, 2, 2, 98]  moves  D
+unit  ['G', 3, 2, 5, 200]  moves  None
+unit  ['E', 2, 5, 3, 83]  fights against unit  3
+unit  ['E', 2, 5, 3, 83]  moves  None
+unit  ['G', 3, 5, 4, 83]  fights against unit  2
+unit  ['G', 3, 5, 4, 83]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#.....#
+#.#G..#
+#G###.#
+#.#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  42
+units:  [['G', 3, 2, 5, 200], ['G', 1, 3, 2, 98], ['E', 2, 5, 3, 80], ['G', 3, 5, 4, 83], ['G', 5, 5, 6, 200]]
+unit  ['G', 3, 2, 5, 200]  moves  None
+unit  ['G', 1, 3, 2, 98]  moves  D
+unit  ['E', 2, 5, 3, 80]  fights against unit  3
+unit  ['E', 2, 5, 3, 80]  moves  None
+unit  ['G', 3, 5, 4, 80]  fights against unit  2
+unit  ['G', 3, 5, 4, 80]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#.....#
+#.#G..#
+#.###.#
+#G#.#.#
+#.EG#G#
+#######
+ 
+combat_round:  43
+units:  [['G', 3, 2, 5, 200], ['G', 1, 4, 2, 98], ['E', 2, 5, 3, 77], ['G', 3, 5, 4, 80], ['G', 5, 5, 6, 200]]
+unit  ['G', 3, 2, 5, 200]  moves  None
+unit  ['G', 1, 4, 2, 98]  moves  D
+unit  ['G', 1, 5, 2, 98]  fights against unit  2
+unit  ['E', 2, 5, 3, 74]  fights against unit  3
+unit  ['E', 2, 5, 3, 74]  moves  None
+unit  ['G', 3, 5, 4, 77]  fights against unit  2
+unit  ['G', 3, 5, 4, 77]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#.....#
+#.#G..#
+#.###.#
+#.#.#.#
+#GEG#G#
+#######
+ 
+combat_round:  44
+units:  [['G', 3, 2, 5, 200], ['G', 1, 5, 2, 98], ['E', 2, 5, 3, 71], ['G', 3, 5, 4, 77], ['G', 5, 5, 6, 200]]
+unit  ['G', 3, 2, 5, 200]  moves  None
+unit  ['G', 1, 5, 2, 98]  fights against unit  2
+unit  ['G', 1, 5, 2, 98]  moves  None
+unit  ['E', 2, 5, 3, 68]  fights against unit  3
+unit  ['E', 2, 5, 3, 68]  moves  None
+unit  ['G', 3, 5, 4, 74]  fights against unit  2
+unit  ['G', 3, 5, 4, 74]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#.....#
+#.#G..#
+#.###.#
+#.#.#.#
+#GEG#G#
+#######
+ 
+combat_round:  45
+units:  [['G', 3, 2, 5, 200], ['G', 1, 5, 2, 98], ['E', 2, 5, 3, 65], ['G', 3, 5, 4, 74], ['G', 5, 5, 6, 200]]
+unit  ['G', 3, 2, 5, 200]  moves  None
+unit  ['G', 1, 5, 2, 98]  fights against unit  2
+unit  ['G', 1, 5, 2, 98]  moves  None
+unit  ['E', 2, 5, 3, 62]  fights against unit  3
+unit  ['E', 2, 5, 3, 62]  moves  None
+unit  ['G', 3, 5, 4, 71]  fights against unit  2
+unit  ['G', 3, 5, 4, 71]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#.....#
+#.#G..#
+#.###.#
+#.#.#.#
+#GEG#G#
+#######
+ 
+combat_round:  46
+units:  [['G', 3, 2, 5, 200], ['G', 1, 5, 2, 98], ['E', 2, 5, 3, 59], ['G', 3, 5, 4, 71], ['G', 5, 5, 6, 200]]
+unit  ['G', 3, 2, 5, 200]  moves  None
+unit  ['G', 1, 5, 2, 98]  fights against unit  2
+unit  ['G', 1, 5, 2, 98]  moves  None
+unit  ['E', 2, 5, 3, 56]  fights against unit  3
+unit  ['E', 2, 5, 3, 56]  moves  None
+unit  ['G', 3, 5, 4, 68]  fights against unit  2
+unit  ['G', 3, 5, 4, 68]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#.....#
+#.#G..#
+#.###.#
+#.#.#.#
+#GEG#G#
+#######
+ 
+combat_round:  47
+units:  [['G', 3, 2, 5, 200], ['G', 1, 5, 2, 98], ['E', 2, 5, 3, 53], ['G', 3, 5, 4, 68], ['G', 5, 5, 6, 200]]
+unit  ['G', 3, 2, 5, 200]  moves  None
+unit  ['G', 1, 5, 2, 98]  fights against unit  2
+unit  ['G', 1, 5, 2, 98]  moves  None
+unit  ['E', 2, 5, 3, 50]  fights against unit  3
+unit  ['E', 2, 5, 3, 50]  moves  None
+unit  ['G', 3, 5, 4, 65]  fights against unit  2
+unit  ['G', 3, 5, 4, 65]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#.....#
+#.#G..#
+#.###.#
+#.#.#.#
+#GEG#G#
+#######
+ 
+combat_round:  48
+units:  [['G', 3, 2, 5, 200], ['G', 1, 5, 2, 98], ['E', 2, 5, 3, 47], ['G', 3, 5, 4, 65], ['G', 5, 5, 6, 200]]
+unit  ['G', 3, 2, 5, 200]  moves  None
+unit  ['G', 1, 5, 2, 98]  fights against unit  2
+unit  ['G', 1, 5, 2, 98]  moves  None
+unit  ['E', 2, 5, 3, 44]  fights against unit  3
+unit  ['E', 2, 5, 3, 44]  moves  None
+unit  ['G', 3, 5, 4, 62]  fights against unit  2
+unit  ['G', 3, 5, 4, 62]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#.....#
+#.#G..#
+#.###.#
+#.#.#.#
+#GEG#G#
+#######
+ 
+combat_round:  49
+units:  [['G', 3, 2, 5, 200], ['G', 1, 5, 2, 98], ['E', 2, 5, 3, 41], ['G', 3, 5, 4, 62], ['G', 5, 5, 6, 200]]
+unit  ['G', 3, 2, 5, 200]  moves  None
+unit  ['G', 1, 5, 2, 98]  fights against unit  2
+unit  ['G', 1, 5, 2, 98]  moves  None
+unit  ['E', 2, 5, 3, 38]  fights against unit  3
+unit  ['E', 2, 5, 3, 38]  moves  None
+unit  ['G', 3, 5, 4, 59]  fights against unit  2
+unit  ['G', 3, 5, 4, 59]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#.....#
+#.#G..#
+#.###.#
+#.#.#.#
+#GEG#G#
+#######
+ 
+combat_round:  50
+units:  [['G', 3, 2, 5, 200], ['G', 1, 5, 2, 98], ['E', 2, 5, 3, 35], ['G', 3, 5, 4, 59], ['G', 5, 5, 6, 200]]
+unit  ['G', 3, 2, 5, 200]  moves  None
+unit  ['G', 1, 5, 2, 98]  fights against unit  2
+unit  ['G', 1, 5, 2, 98]  moves  None
+unit  ['E', 2, 5, 3, 32]  fights against unit  3
+unit  ['E', 2, 5, 3, 32]  moves  None
+unit  ['G', 3, 5, 4, 56]  fights against unit  2
+unit  ['G', 3, 5, 4, 56]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#.....#
+#.#G..#
+#.###.#
+#.#.#.#
+#GEG#G#
+#######
+ 
+combat_round:  51
+units:  [['G', 3, 2, 5, 200], ['G', 1, 5, 2, 98], ['E', 2, 5, 3, 29], ['G', 3, 5, 4, 56], ['G', 5, 5, 6, 200]]
+unit  ['G', 3, 2, 5, 200]  moves  None
+unit  ['G', 1, 5, 2, 98]  fights against unit  2
+unit  ['G', 1, 5, 2, 98]  moves  None
+unit  ['E', 2, 5, 3, 26]  fights against unit  3
+unit  ['E', 2, 5, 3, 26]  moves  None
+unit  ['G', 3, 5, 4, 53]  fights against unit  2
+unit  ['G', 3, 5, 4, 53]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#.....#
+#.#G..#
+#.###.#
+#.#.#.#
+#GEG#G#
+#######
+ 
+combat_round:  52
+units:  [['G', 3, 2, 5, 200], ['G', 1, 5, 2, 98], ['E', 2, 5, 3, 23], ['G', 3, 5, 4, 53], ['G', 5, 5, 6, 200]]
+unit  ['G', 3, 2, 5, 200]  moves  None
+unit  ['G', 1, 5, 2, 98]  fights against unit  2
+unit  ['G', 1, 5, 2, 98]  moves  None
+unit  ['E', 2, 5, 3, 20]  fights against unit  3
+unit  ['E', 2, 5, 3, 20]  moves  None
+unit  ['G', 3, 5, 4, 50]  fights against unit  2
+unit  ['G', 3, 5, 4, 50]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#.....#
+#.#G..#
+#.###.#
+#.#.#.#
+#GEG#G#
+#######
+ 
+combat_round:  53
+units:  [['G', 3, 2, 5, 200], ['G', 1, 5, 2, 98], ['E', 2, 5, 3, 17], ['G', 3, 5, 4, 50], ['G', 5, 5, 6, 200]]
+unit  ['G', 3, 2, 5, 200]  moves  None
+unit  ['G', 1, 5, 2, 98]  fights against unit  2
+unit  ['G', 1, 5, 2, 98]  moves  None
+unit  ['E', 2, 5, 3, 14]  fights against unit  3
+unit  ['E', 2, 5, 3, 14]  moves  None
+unit  ['G', 3, 5, 4, 47]  fights against unit  2
+unit  ['G', 3, 5, 4, 47]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#.....#
+#.#G..#
+#.###.#
+#.#.#.#
+#GEG#G#
+#######
+ 
+combat_round:  54
+units:  [['G', 3, 2, 5, 200], ['G', 1, 5, 2, 98], ['E', 2, 5, 3, 11], ['G', 3, 5, 4, 47], ['G', 5, 5, 6, 200]]
+unit  ['G', 3, 2, 5, 200]  moves  None
+unit  ['G', 1, 5, 2, 98]  fights against unit  2
+unit  ['G', 1, 5, 2, 98]  moves  None
+unit  ['E', 2, 5, 3, 8]  fights against unit  3
+unit  ['E', 2, 5, 3, 8]  moves  None
+unit  ['G', 3, 5, 4, 44]  fights against unit  2
+unit  ['G', 3, 5, 4, 44]  moves  None
+unit  ['G', 5, 5, 6, 200]  moves  None
+#######
+#.....#
+#.#G..#
+#.###.#
+#.#.#.#
+#GEG#G#
+#######
+ 
+combat_round:  55
+units:  [['G', 3, 2, 5, 200], ['G', 1, 5, 2, 98], ['E', 2, 5, 3, 5], ['G', 3, 5, 4, 44], ['G', 5, 5, 6, 200]]
+unit  ['G', 3, 2, 5, 200]  moves  None
+unit  ['G', 1, 5, 2, 98]  fights against unit  2
+unit  ['G', 1, 5, 2, 98]  moves  None
+unit  ['E', 2, 5, 3, 2]  fights against unit  3
+unit  ['E', 2, 5, 3, 2]  moves  None
+unit  ['G', 3, 5, 4, 41]  fights against unit  2
+unit  ['G', 3, 5, 4, 41]  moves  None
+length of dead array:  1
+xdead, ydead:  2 5
+#######
+#.....#
+#.#G..#
+#.###.#
+#.#.#.#
+#G.G#G#
+#######
+ 
+The goblins won
+With remaining hp:  539
+outcome:  29106
