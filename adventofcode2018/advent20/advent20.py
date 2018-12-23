@@ -118,7 +118,7 @@ for line in input:
             # set the current location
             branchx.append(x)
             branchy.append(y)
-            print('open(', branchx, branchy, x, y)
+#            print('open(', branchx, branchy, x, y)
         elif (ch == ")"):
             # this is at the end of some instructions, go back to
             # where we were at the start... ?
@@ -126,12 +126,12 @@ for line in input:
             y = branchy[-1]
             del branchx[-1]
             del branchy[-1]
-            print('close)', branchx, branchy, x, y)
+#            print('close)', branchx, branchy, x, y)
         elif (ch == "|"):
             # return back to branch location set earlier?
             x = branchx[-1]
             y = branchy[-1]
-            print('pipe|', branchx, branchy, x, y)
+#            print('pipe|', branchx, branchy, x, y)
         elif (ch == "$"):
             # at the end; loop, convert all ?s to walls #
             render_grid(grid)
@@ -141,7 +141,7 @@ for line in input:
                         grid[j][i] = val_from_char("#")
 
 
-render_grid(grid)
+#render_grid(grid)
 
 # resize the grid... ?
 resize_grid = []
