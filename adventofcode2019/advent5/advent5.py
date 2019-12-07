@@ -143,7 +143,6 @@ def part2(input_data, input):
     return output, data
 
 print(input_data)
-print('Part1: ', part1(input_data, 1))  # for part1 to work again, ignore
-                                          # instruction 5-8...
+print('Part1: ', part1(input_data, 1))
 print(base_input_data)
 print('Part2: ', part2(base_input_data, 5))
