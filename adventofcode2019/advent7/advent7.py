@@ -2,11 +2,11 @@
 from itertools import permutations
 
 # open file
-# input = open("advent7_input.txt", "r")
+input = open("advent7_input.txt", "r")
 # input = open("advent7_test_input.txt", "r")
 # input = open("advent7_test_input2.txt", "r")
 # input = open("advent7_test_input3.txt", "r")
-input = open("advent7_test_input4.txt", "r")
+# input = open("advent7_test_input4.txt", "r")
 # input = open("advent7_test_input5.txt", "r")
 
 # read string into array
@@ -37,18 +37,17 @@ def get_operating_values(input_data, op_pos, par1, par2):
 
     return val1, val2
 
-def get_value(base_input_data, input1, input2):
-    op_pos = 0
+def get_value(base_input_data, input1, input2, first_input, op_pos):
     input_data = []
     for i in range(len(base_input_data)):
         input_data.append(base_input_data[i])
 
 #     print(input_data)
     output = None
-    first_input = True
 
     while op_pos < len(input_data):
 
+#         print('step: input_data: ', input_data, input1, input2, op_pos)
         opcode = input_data[op_pos]
         par3 = (opcode // 10**4)
         next = opcode - (par3 * 10**4)
@@ -96,7 +95,7 @@ def get_value(base_input_data, input1, input2):
             else:
                 output = value_at
             op_pos += 2
-            return output, input_data
+            return output, op_pos, input_data
         elif (instruction==5):
             val1, val2 = get_operating_values(input_data, op_pos, par1, par2)
 #             print('instruction=5, values: ', val1, val2)
@@ -137,7 +136,8 @@ def get_value(base_input_data, input1, input2):
 
 #         print(op_pos, input_data)
 
-    return output, input_data
+#     print('whats this: ', output, input_data, op_pos)
+    return output, op_pos, input_data
 
 def part1(input_data, input1):
     max_thrusters = 0
@@ -152,13 +152,13 @@ def part1(input_data, input1):
 #             for c in range(n_amps):
 #                 for d in range(n_amps):
 #                     for e in range(n_amps):
-
+    op_pos = 0
     for perm in perms:
-        output1, _data = get_value(input_data, perm[0], input1)
-        output2, _data = get_value(input_data, perm[1], output1)
-        output3, _data = get_value(input_data, perm[2], output2)
-        output4, _data = get_value(input_data, perm[3], output3)
-        output5, _data = get_value(input_data, perm[4], output4)
+        output1, _op_pos, _data = get_value(input_data, perm[0], input1, True, op_pos)
+        output2, _op_pos, _data = get_value(input_data, perm[1], output1, True, op_pos)
+        output3, _op_pos, _data = get_value(input_data, perm[2], output2, True, op_pos)
+        output4, _op_pos, _data = get_value(input_data, perm[3], output3, True, op_pos)
+        output5, _op_pos, _data = get_value(input_data, perm[4], output4, True, op_pos)
 
         if output5 > max_thrusters:
             max_thrusters = output5
@@ -180,25 +180,35 @@ def part2(input_data, input1):
 #                 for m in range(feedback_mode, feedback_mode+n_amps):
 #                     for n in range(feedback_mode, feedback_mode+n_amps):
 
-    for perm in perms:
-        output1, input_data1 = get_value(input_data, perm[0], input1)
-        output2, input_data2 = get_value(input_data, perm[1], output1)
-        output3, input_data3 = get_value(input_data, perm[2], output2)
-        output4, input_data4 = get_value(input_data, perm[3], output3)
-        output5, input_data5 = get_value(input_data, perm[4], output4)
+    perms = [(9,8,7,6,5)]
 
+#     print('start at', input_data)
+    for perm in perms:
+        op_pos1 = 0
+        op_pos2 = 0
+        op_pos3 = 0
+        op_pos4 = 0
+        op_pos5 = 0
+        output1, op_pos1, input_data1 = get_value(input_data, perm[0], input1, True, op_pos1)
+        output2, op_pos2, input_data2 = get_value(input_data, perm[1], output1, True, op_pos2)
+        output3, op_pos3, input_data3 = get_value(input_data, perm[2], output2, True, op_pos3)
+        output4, op_pos4, input_data4 = get_value(input_data, perm[3], output3, True, op_pos4)
+        output5, op_pos5, input_data5 = get_value(input_data, perm[4], output4, True, op_pos5)
+
+#         print(perm, output5, op_pos5, input_data5)
         # clearly this now keeps going, but I have no idea how it stops!  is it when output is zero?
         max_val = 0
         count = 0
         while count < 10:
-            output1, next_input_data1 = get_value(input_data1, perm[0], output5)
-            output2, next_input_data2 = get_value(input_data2, perm[1], output1)
-            output3, next_input_data3 = get_value(input_data3, perm[2], output2)
-            output4, next_input_data4 = get_value(input_data4, perm[3], output3)
-            output5, next_input_data5 = get_value(input_data5, perm[4], output4)
+            output1, op_pos1, input_data1 = get_value(input_data1, output5, output5, True, op_pos1)
+            output2, op_pos2, input_data2 = get_value(input_data2, output1, output1, True, op_pos2)
+            output3, op_pos3, input_data3 = get_value(input_data3, output2, output2, True, op_pos3)
+            output4, op_pos4, input_data4 = get_value(input_data4, output3, output3, True, op_pos4)
+            output5, op_pos5, input_data5 = get_value(input_data5, output4, output4, True, op_pos5)
 
             if output5:
-                print(perm, output5, count)
+#                 print('input_data: ', input_data5)
+#                 print(perm, output5, count)
                 if output5 > max_val:
                    max_val = output5
             else:
@@ -210,12 +220,12 @@ def part2(input_data, input1):
                 max_thrusters = max_val
                 max_loc = perm  # [i,j,k,m,n]
 
-            for i in range(len(input_data1)):
-                input_data1[i] = next_input_data1[i]
-                input_data2[i] = next_input_data2[i]
-                input_data3[i] = next_input_data3[i]
-                input_data4[i] = next_input_data4[i]
-                input_data5[i] = next_input_data5[i]
+#             for i in range(len(input_data1)):
+#                 input_data1[i] = next_input_data1[i]
+#                 input_data2[i] = next_input_data2[i]
+#                 input_data3[i] = next_input_data3[i]
+#                 input_data4[i] = next_input_data4[i]
+#                 input_data5[i] = next_input_data5[i]
 
     return max_thrusters, max_loc
 
