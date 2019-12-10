@@ -145,13 +145,14 @@ def part1(input_map):
 
 def part2(input_map, laser_station):
 
-    print("laser_station: ", laser_station)
     count_asteroids, asteroids = get_asteroids(
         input_map, laser_station[0], laser_station[1])
 
     # 200 is less than the size of the asteroids viewed from the laser
     # (in both big cases), so we don't need to worry about what happens
-    # on later spins
+    # on later spins; the way to do it, though, would just be to update
+    # the map to remove an asteroid when it counts it, and then to
+    # call get_asteroids again if you reach the end of the first list
 
     # Reorder the array to match what the laser will see using angles!
     first_asteroid = 0
@@ -160,21 +161,19 @@ def part2(input_map, laser_station):
         adj = asteroids[a][0] - laser_station[0]
         opp = laser_station[1] - asteroids[a][1]
         angle = math.atan2(adj, opp)
-        if angle == 0.0:
-            print('first asteroid is at ', asteroids[a])
         if angle < 0.0:
             angle = angle + 2*math.pi
         angles.append([angle, asteroids[a], a])
 
     angles_sorted = sorted(angles, key=lambda x: x[0])
 
-    print(angles_sorted)
-    print(angles_sorted[1])
-    print(angles_sorted[2])
-    print(angles_sorted[9])
-    print(angles_sorted[49])
-    print(angles_sorted[99])
-    print(angles_sorted[199])
+#     print(angles_sorted)
+#     print(angles_sorted[1])
+#     print(angles_sorted[2])
+#     print(angles_sorted[9])
+#     print(angles_sorted[49])
+#     print(angles_sorted[99])
+#     print(angles_sorted[199])
     answer = angles_sorted[199][1][0]*100 + angles_sorted[199][1][1]
 
     return answer
@@ -182,5 +181,5 @@ def part2(input_map, laser_station):
 print_map(input_map)
 
 part1_answer = part1(input_map)
-print("Part 1 answer: ", part1(input_map))
+print("Part 1 answer: ", part1_answer)
 print("Part 2 answer: ", part2(input_map, part1_answer[1]))
