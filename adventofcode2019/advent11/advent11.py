@@ -170,7 +170,7 @@ def get_value(base_input_data, input, op_pos, relative_base):
                 relative_base += input_data[input_data[op_pos+1]+relative_base]
 
             op_pos += 2
-        else:
+        elif (instruction==99):
             break
 
     return outputs, op_pos, relative_base, input_data
