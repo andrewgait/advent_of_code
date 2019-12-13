@@ -367,5 +367,6 @@ for n in range(len(grids)):
 
 im_ani = animation.ArtistAnimation(fig, ims, interval=10, repeat_delay=3000,
                                    blit=True)
+im_ani.save('advent13_breakout.mp4', metadata={'code':'andrewgait'})
 
 plt.show()
