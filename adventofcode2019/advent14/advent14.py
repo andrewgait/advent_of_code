@@ -48,6 +48,7 @@ def get_stuff(id, value, total, required_dict, rhs_dict):
         else:
             new_value = rhs_dict[id]
             print("ID acc_value value new_value ", id, acc_value, value, new_value)
+            # I think at this point we need to work out whether we need to get stuff at this point
             total = get_stuff(id, new_value, total, required_dict, rhs_dict)
 
     return total
