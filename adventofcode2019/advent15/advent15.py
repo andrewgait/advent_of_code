@@ -111,7 +111,7 @@ def get_value(base_input_data, input, op_pos, relative_base):
                 store_at = input_data[op_pos+1]
                 if par1 == 2:
                     store_at = relative_base + input_data[op_pos+1]
-                print('instruction3, input, outputs: ', input, outputs)
+#                print('instruction3, input, outputs: ', input, outputs)
                 input_data[store_at] = input
                 op_pos += 2
                 input_read = True
@@ -221,6 +221,7 @@ def move_robot(grid, distance, robot_x, robot_y, input, output):
         elif output == 2:
             grid[robot_y-1][robot_x] = 4
             distance[robot_y-1][robot_x] = distance[robot_y][robot_x]+1
+            robot_y -= 1
     if input == 2:  # SOUTH
         if output == 0:
             grid[robot_y+1][robot_x] = 2
@@ -233,6 +234,7 @@ def move_robot(grid, distance, robot_x, robot_y, input, output):
         elif output == 2:
             grid[robot_y+1][robot_x] = 4
             distance[robot_y+1][robot_x] = distance[robot_y][robot_x]+1
+            robot_y += 1
     if input == 3:  # WEST
         if output == 0:
             grid[robot_y][robot_x-1] = 2
@@ -245,6 +247,7 @@ def move_robot(grid, distance, robot_x, robot_y, input, output):
         elif output == 2:
             grid[robot_y][robot_x-1] = 4
             distance[robot_y][robot_x-1] = distance[robot_y][robot_x]+1
+            robot_x -= 1
     if input == 4:  # EAST
         if output == 0:
             grid[robot_y][robot_x+1] = 2
@@ -257,6 +260,7 @@ def move_robot(grid, distance, robot_x, robot_y, input, output):
         elif output == 2:
             grid[robot_y][robot_x+1] = 4
             distance[robot_y][robot_x+1] = distance[robot_y][robot_x]+1
+            robot_x ++ 1
 
     return grid, distance, robot_x, robot_y
 
@@ -286,17 +290,11 @@ def part1(input_data, relative_base):
     grid[robot_y][robot_x] = 3
     distance[robot_y][robot_x] = 1
 
-#     inputs = [1, 4, 1, 2, 4, 3, 3, 2, 2, 3, 1, 1, 1]
-#     outputs = [0, 1, 0, 0, 0, 1, 0, 1, 0, 2, 0, 0, 0]
-
     # north is 1, south is 2, west is 3, east is 4
     facing = 1
     input = 1
-#     poss_inputs = [1, 2, 3, 4]
-    # make a distance travelled grid for robot
 
     while True:
-#     for i in range(len(inputs)):
         outputs, op_pos, relative_base, input_data = get_value(
             input_data, input, op_pos, relative_base)
         output = outputs[0]
@@ -310,6 +308,14 @@ def part1(input_data, relative_base):
         print(distance)
 
         if output == 2:
+            if input == 1: # NORTH
+                input = 3 # WEST
+            elif input == 2: # SOUTH
+                input = 4 # EAST
+            elif input == 3: # WEST
+                input = 2 # SOUTH
+            elif input == 4: # EAST
+                input = 1 # NORTH
             break
         elif output == 0:  # WALL
             # turn to face somewhere else?
@@ -333,26 +339,89 @@ def part1(input_data, relative_base):
                 input = 1 # NORTH
 
     print(start_x, start_y)
+    print(robot_x, robot_y)
 
-    return distance[robot_y][robot_x]
+    return distance[robot_y][robot_x], robot_x, robot_y, input_data, relative_base, input, op_pos, grid, distance
 
 
-def part2(input_data, relative_base):
+def part2(input_data, relative_base, robot_x, robot_y, input, op_pos, grid, distance):
 
-    op_pos = 0
-    input_data[0] = 2
-    input = 0
-    outputs, op_pos, relative_base, input_data1 = get_value(
-        input_data, input, op_pos, relative_base)
+    # op_pos = 0
+    # input = 0  # seems from instructions as though this isn't needed?
+    # we need to move a robot around a grid
+    size = 50
+    # grid = np.zeros((size,size), dtype=np.int32)
+    distance = np.zeros((size,size), dtype=np.int32)
 
-    print(op_pos, relative_base, len(outputs), outputs)
+    ox_x = ox_y = -1
+    start_x = robot_x
+    start_y = robot_y
 
-    score = 0
+    grid[robot_y][robot_x] = 3
+    distance[robot_y][robot_x] = 1
 
-    return score
+    # north is 1, south is 2, west is 3, east is 4
+    facing = 1
+    input = 1
+
+    # searching grid finishes once start square has been visited 4 times
+    start_visited = 0
+
+    while True:
+        outputs, op_pos, relative_base, input_data = get_value(
+            input_data, input, op_pos, relative_base)
+        output = outputs[0]
+
+#        print(input, output)
+
+        grid, distance, robot_x, robot_y = move_robot(
+            grid, distance, robot_x, robot_y, input, output)
+
+#        draw_grid(grid)
+#        print(distance)
+        if robot_x == start_x and robot_y == start_y:
+            start_visited += 1
+            print('start visited: ', start_visited)
+
+        if start_visited == 4:
+            break
+
+        if output == 2:
+            ox_x = robot_x
+            ox_y = robot_y
+
+        if output == 0:  # WALL
+            # turn to face somewhere else?
+            if input == 1: # NORTH
+                input = 4 # EAST
+            elif input == 2: # SOUTH
+                input = 3 # WEST
+            elif input == 3: # WEST
+                input = 1 # NORTH
+            elif input == 4: # EAST
+                input = 2 # SOUTH
+        elif output == 1 or output == 2:  # empty, or oxygen, moved forward
+            # turn the opposite way to if there was a wall!
+            if input == 1: # NORTH
+                input = 3 # WEST
+            elif input == 2: # SOUTH
+                input = 4 # EAST
+            elif input == 3: # WEST
+                input = 2 # SOUTH
+            elif input == 4: # EAST
+                input = 1 # NORTH
+
+    print(start_x, start_y)
+
+    grid[ox_y][ox_x] = 4
+    draw_grid(grid)
+    #    print(distance.tolist())
+
+    # the distance grid started at 1, so subtract 1 off the max
+    return np.max(distance) - 1
+
 
 def test_robot_movement():
-    #
     # we need to move a robot around a grid
     size = 10
     grid = np.zeros((size,size), dtype=np.int32)
@@ -395,11 +464,9 @@ print("Test, distance =  ", test_robot_movement())
 
 relative_base = 0
 print(len(input_data), input_data)
-print('Part1: ', part1(input_data, relative_base))
+answer, robot_x, robot_y, input_data, relative_base, input, op_pos, grid, distance = part1(input_data, relative_base)
+print('Part1: ', answer)
 print('\n')
-#
-# relative_base = 0
-# print(' part2 input ', len(part2_input_data))
-# print(part2_input_data)
-# score = part2(part2_input_data, relative_base)
-# print('Part2: ', score)
+
+max_time = part2(input_data, relative_base, robot_x, robot_y,  input, op_pos, grid, distance)
+print('Part2: ', max_time)
