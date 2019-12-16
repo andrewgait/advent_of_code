@@ -130,8 +130,8 @@ def get_value(base_input_data, input, op_pos, relative_base):
             # in this case the output needs to be returned, not appended ?
             outputs.append(output)
             # when it gets to two outputs, send it
-#             if len(outputs)==2:
-#                 return outputs, op_pos, relative_base, input_data
+            if len(outputs)==1:
+                return outputs, op_pos, relative_base, input_data
         elif (instruction==5):
             # jump if non-zero
             val1, val2, val3 = get_operating_values(
@@ -193,32 +193,148 @@ def draw_grid(grid):
         str = ""
         for i in range(len(grid[j])):
             if grid[j][i] == 0:
-                str += "."
+                str += "_"  # not checked region
             elif grid[j][i] == 1:
-                str += "W"
+                str += "."  # checked, empty
             elif grid[j][i] == 2:
-                str += "B"
+                str += "#"  # checked, wall
             elif grid[j][i] == 3:
-                str += "P"
+                str += "D"  # where droid currently is
             elif grid[j][i] == 4:
-                str += "O"
+                str += "O"  # where oxygen tank is
+
         print(str)
 
     print("\n")
+
+def move_robot(grid, distance, robot_x, robot_y, input, output):
+    # work out where the robot faces next
+    if input == 1:  # NORTH
+        if output == 0:
+            grid[robot_y-1][robot_x] = 2
+        elif output == 1:
+            grid[robot_y][robot_x] = 1
+            grid[robot_y-1][robot_x] = 3
+            if (distance[robot_y-1][robot_x] == 0):
+                distance[robot_y-1][robot_x] = distance[robot_y][robot_x]+1
+            robot_y -= 1
+        elif output == 2:
+            grid[robot_y-1][robot_x] = 4
+            distance[robot_y-1][robot_x] = distance[robot_y][robot_x]+1
+    if input == 2:  # SOUTH
+        if output == 0:
+            grid[robot_y+1][robot_x] = 2
+        elif output == 1:
+            grid[robot_y][robot_x] = 1
+            grid[robot_y+1][robot_x] = 3
+            if (distance[robot_y+1][robot_x] == 0):
+                distance[robot_y+1][robot_x] = distance[robot_y][robot_x]+1
+            robot_y += 1
+        elif output == 2:
+            grid[robot_y+1][robot_x] = 4
+            distance[robot_y+1][robot_x] = distance[robot_y][robot_x]+1
+    if input == 3:  # WEST
+        if output == 0:
+            grid[robot_y][robot_x-1] = 2
+        elif output == 1:
+            grid[robot_y][robot_x] = 1
+            grid[robot_y][robot_x-1] = 3
+            if (distance[robot_y][robot_x-1] == 0):
+                distance[robot_y][robot_x-1] = distance[robot_y][robot_x]+1
+            robot_x -= 1
+        elif output == 2:
+            grid[robot_y][robot_x-1] = 4
+            distance[robot_y][robot_x-1] = distance[robot_y][robot_x]+1
+    if input == 4:  # EAST
+        if output == 0:
+            grid[robot_y][robot_x+1] = 2
+        elif output == 1:
+            grid[robot_y][robot_x] = 1
+            grid[robot_y][robot_x+1] = 3
+            if (distance[robot_y][robot_x+1] == 0):
+                distance[robot_y][robot_x+1] = distance[robot_y][robot_x]+1
+            robot_x += 1
+        elif output == 2:
+            grid[robot_y][robot_x+1] = 4
+            distance[robot_y][robot_x+1] = distance[robot_y][robot_x]+1
+
+    return grid, distance, robot_x, robot_y
+
+def get_oxygen_distance(grid, start_x, start_y):
+    # Find the oxygen system
+    ox_x = ox_y = 0
+    for j in range(len(grid)):
+        for i in range(len(grid[j])):
+            if grid[j][i] == 4:
+                ox_x = i
+                ox_y = j
+
+    return abs(start_x-ox_x)+abs(start_y-ox_y)
 
 
 def part1(input_data, relative_base):
 
     op_pos = 0
     input = 0  # seems from instructions as though this isn't needed?
-    outputs, op_pos, relative_base, input_data = get_value(
-        input_data, input, op_pos, relative_base)
+    # we need to move a robot around a grid
+    size = 50
+    grid = np.zeros((size,size), dtype=np.int32)
+    distance = np.zeros((size,size), dtype=np.int32)
 
-    print(op_pos, relative_base, len(outputs), outputs)
+    start_x = start_y = robot_x = robot_y = size//2
 
-    count_length = 0
+    grid[robot_y][robot_x] = 3
+    distance[robot_y][robot_x] = 1
 
-    return count_length
+#     inputs = [1, 4, 1, 2, 4, 3, 3, 2, 2, 3, 1, 1, 1]
+#     outputs = [0, 1, 0, 0, 0, 1, 0, 1, 0, 2, 0, 0, 0]
+
+    # north is 1, south is 2, west is 3, east is 4
+    facing = 1
+    input = 1
+#     poss_inputs = [1, 2, 3, 4]
+    # make a distance travelled grid for robot
+
+    while True:
+#     for i in range(len(inputs)):
+        outputs, op_pos, relative_base, input_data = get_value(
+            input_data, input, op_pos, relative_base)
+        output = outputs[0]
+
+        print(input, output)
+
+        grid, distance, robot_x, robot_y = move_robot(
+            grid, distance, robot_x, robot_y, input, output)
+
+        draw_grid(grid)
+        print(distance)
+
+        if output == 2:
+            break
+        elif output == 0:  # WALL
+            # turn to face somewhere else?
+            if input == 1: # NORTH
+                input = 4 # EAST
+            elif input == 2: # SOUTH
+                input = 3 # WEST
+            elif input == 3: # WEST
+                input = 1 # NORTH
+            elif input == 4: # EAST
+                input = 2 # SOUTH
+        elif output == 1:  # empty, moved forward
+            # turn the opposite way to if there was a wall!
+            if input == 1: # NORTH
+                input = 3 # WEST
+            elif input == 2: # SOUTH
+                input = 4 # EAST
+            elif input == 3: # WEST
+                input = 2 # SOUTH
+            elif input == 4: # EAST
+                input = 1 # NORTH
+
+    print(start_x, start_y)
+
+    return distance[robot_y][robot_x]
 
 
 def part2(input_data, relative_base):
@@ -240,21 +356,50 @@ def test_robot_movement():
     # we need to move a robot around a grid
     size = 10
     grid = np.zeros((size,size), dtype=np.int32)
+    distance = np.zeros((size,size), dtype=np.int32)
 
-    start_at = (size//2, size//2)
+    start_x = start_y = robot_x = robot_y = size//2
 
-    draw_grid(grid)
+    grid[robot_y][robot_x] = 3
+    distance[robot_y][robot_x] = 1
 
+    inputs = [1, 4, 1, 2, 4, 3, 3, 2, 2, 3, 1, 1, 1]
+    outputs = [0, 1, 0, 0, 0, 1, 0, 1, 0, 2, 0, 0, 0]
 
-test_robot_movement()
+    # north is 1, south is 2, west is 3, east is 4
+    facing = 1
+    while True:
+#     for i in range(len(inputs)):
+        input = inputs.pop(0)
+        output = outputs.pop(0)
+        print(input, output)
+
+        grid, distance, robot_x, robot_y = move_robot(
+            grid, distance, robot_x, robot_y, input, output)
+
+        draw_grid(grid)
+        print(distance)
+
+        if output == 2:
+            break
+
+    # Ah. we're not working out here what the distance is, it's
+    # how many robot movements it needs to get to where it just arrived...
+    # ... and it's quite possible that there's a shorter route available
+    # that it hasn't seen yet
+    print(start_x, start_y)
+
+    return get_oxygen_distance(grid, start_x, start_y)
+
+print("Test, distance =  ", test_robot_movement())
 
 relative_base = 0
 print(len(input_data), input_data)
 print('Part1: ', part1(input_data, relative_base))
 print('\n')
-
-relative_base = 0
-print(' part2 input ', len(part2_input_data))
-print(part2_input_data)
-score = part2(part2_input_data, relative_base)
-print('Part2: ', score)
+#
+# relative_base = 0
+# print(' part2 input ', len(part2_input_data))
+# print(part2_input_data)
+# score = part2(part2_input_data, relative_base)
+# print('Part2: ', score)
