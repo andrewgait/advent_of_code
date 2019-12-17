@@ -341,10 +341,13 @@ def part1(input_data, relative_base):
     print(start_x, start_y)
     print(robot_x, robot_y)
 
-    return distance[robot_y][robot_x], robot_x, robot_y, input_data, relative_base, input, op_pos, grid, distance
+    # the distance grid started at 1, so subtract 1 off the value here
+    return (distance[robot_y][robot_x]-1, robot_x, robot_y, input_data,
+            relative_base, input, op_pos, grid, distance)
 
 
-def part2(input_data, relative_base, robot_x, robot_y, input, op_pos, grid, distance):
+def part2(input_data, relative_base, robot_x, robot_y,
+          input, op_pos, grid, distance):
 
     # op_pos = 0
     # input = 0  # seems from instructions as though this isn't needed?
@@ -464,9 +467,11 @@ print("Test, distance =  ", test_robot_movement())
 
 relative_base = 0
 print(len(input_data), input_data)
-answer, robot_x, robot_y, input_data, relative_base, input, op_pos, grid, distance = part1(input_data, relative_base)
+(answer, robot_x, robot_y, input_data, relative_base, input, op_pos, grid,
+    distance) = part1(input_data, relative_base)
 print('Part1: ', answer)
 print('\n')
 
-max_time = part2(input_data, relative_base, robot_x, robot_y,  input, op_pos, grid, distance)
+max_time = part2(input_data, relative_base, robot_x, robot_y,
+                 input, op_pos, grid, distance)
 print('Part2: ', max_time)
