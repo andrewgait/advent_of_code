@@ -3,7 +3,7 @@ import math
 
 # open file
 # input = open("advent14_input.txt", "r")
-input = open("advent14_test_input.txt", "r")
+# input = open("advent14_test_input.txt", "r")
 input = open("advent14_test_input2.txt", "r")
 # input = open("advent14_test_input3.txt", "r")
 # input = open("advent14_test_input4.txt", "r")
@@ -25,8 +25,6 @@ print(required_dict)
 print(rhs_dict)
 print(required_dict["1 FUEL"])
 
-# really not sure how to do this.  not awake enough.  make another dict which determines which ids depend on others?
-
 def get_list(str):
     return str.split(", ")
 
@@ -39,25 +37,35 @@ def get_value(element):
     return int(split[0])
 
 # some sort of recursive function is needed to do this
-def get_stuff(id, value, mult, total, required_dict, rhs_dict, rhs_amount):
+def get_stuff(id, value, req_value, total,
+              required_dict, rhs_dict, rhs_amount):
     keystr = str(value)+" "+id
     list = get_list(required_dict[keystr])
     for n in range(len(list)):
-        acc_value = get_value(list[n])
-        id = get_id(list[n])
-        if (id=="ORE"):
-            print("reached ORE, ", acc_value, value, id, total, mult)
-            total += (acc_value // value) * value * mult
+        new_value = get_value(list[n])
+        new_id = get_id(list[n])
+        if (new_id=="ORE"):
+            total += int(math.ceil(req_value / new_value)) * value
+            print("reached ORE, ", req_value, value, new_value, new_id, total)
         else:
-            new_value = rhs_dict[id]
-            rhs_amount[id] += (new_value - acc_value) * mult
-            mult = acc_value
-            print("ID acc_value value new_value ", id, acc_value, value, new_value, mult)
+            # If e.g. in test 2 I am at AB, I need 2 (new_value) ABs
+            # so this needs to go into the next layer
+
+            value = rhs_dict[new_id] # // value) * acc_value * mult
+#             mult = acc_value
+#             value = int(math.ceil(req_value / value)) * new_value
+            print("ID req_value value new_value",
+                  new_id, req_value, value, new_value)
+#             new_value = req_value * new_value
+            rhs_amount[new_id] += new_value - int(math.ceil(new_value/req_value))
+            print(rhs_amount)
             # I think at this point we need to work out whether we need to get stuff or not
-            if rhs_amount[id] < new_value:
-                total = get_stuff(id, new_value, mult, total, required_dict, rhs_dict, rhs_amount)
+            if rhs_amount[new_id] < value:
+                total = get_stuff(new_id, value, new_value, total,
+                                  required_dict, rhs_dict, rhs_amount)
             else:
-                rhs_amount[id] -= new_value * acc_value
+                print('reduce amount in storage of ', new_id)
+                rhs_amount[new_id] -= value
 
     return total
 
@@ -66,9 +74,11 @@ def part1(required_dict, rhs_dict, rhs_amount):
     id = "FUEL"
     value = 1
     mult = 1
+#     v = 1
     total = 0
 
-    total += get_stuff(id, value, mult, total, required_dict, rhs_dict, rhs_amount)
+    total += get_stuff(id, value, mult, total,
+                       required_dict, rhs_dict, rhs_amount)
 
     return total
 
