@@ -1,14 +1,8 @@
 # Advent of code 2019, day 19
 import numpy as np
 
-# import matplotlib.pyplot as plt
-# import matplotlib.animation as animation
-
 # open file
 input = open("advent19_input.txt", "r")
-# input = open("advent19_test_input.txt", "r")
-# input = open("advent19_test_input2.txt", "r")
-# input = open("advent19_test_input3.txt", "r")
 
 input_string = None
 
@@ -25,7 +19,7 @@ print(len(input_data))
 codelen = len(input_data)
 
 # extra memory space needed?
-for i in range(10000):
+for i in range(100):
     input_data.append(0)
 
 # make a separate copy for part2
@@ -135,8 +129,8 @@ def get_value(base_input_data, input, op_pos, relative_base):
             # in this case the output needs to be returned, not appended ?
             outputs.append(output)
             # when it gets to two outputs, send it
-#             if len(outputs)==1:
-#                 return outputs, op_pos, relative_base, input_data
+            if len(outputs)==1:
+                return outputs, op_pos, relative_base, input_data
         elif (instruction==5):
             # jump if non-zero
             val1, val2, val3 = get_operating_values(
@@ -199,17 +193,6 @@ def draw_grid(grid):
         for i in range(len(grid[j])):
             str += chr(grid[j][i])  # reads ascii value
 
-#             if grid[j][i] == 0:
-#                 str += "_"  # not checked region
-#             elif grid[j][i] == 46:
-#                 str += "."  # checked, dot (empty)
-#             elif grid[j][i] == 35:
-#                 str += "#"  # checked, scaffold
-#             elif grid[j][i] == 3:
-#                 str += "D"  # where droid currently is
-#             elif grid[j][i] == 4:
-#                 str += "O"  # where oxygen tank is
-
         print(str)
 
     print("\n")
@@ -224,12 +207,12 @@ def part1(input_data, relative_base):
 
     # inputs in this case are just (x, y) coordinates
     # probably a good idea not to change the position or relative base between calls
+    inputs = []
     for j in range(size):
         for i in range(size):
-            input = [i, j]
+            inputs += [i, j]
             outputs, _op_pos, _relative_base, _input_data = get_value(
-                input_data, input, op_pos, relative_base)
-
+                input_data, inputs, op_pos, relative_base)
             if outputs[0] == 0:
                 grid[j][i] = asciichars['.']
             elif outputs[0] == 1:
@@ -245,14 +228,61 @@ def part1(input_data, relative_base):
 def part2(input_data, relative_base):
 
     op_pos = 0
+    # looking for a complete 100x100 grid of tractor beam, so 1000x1000 might be big enough?
+    size = 5000
+    grid = np.zeros((size,size), dtype=np.int32)
 
-    answer = 0
+    n_points = 0
+
+    # make the grid
+    for j in range(1000,size):
+        print("make grid row ", j)
+        for i in range(size):
+            input = [i, j]
+            outputs, _op_pos, _relative_base, _input_data = get_value(
+                input_data, input, op_pos, relative_base)
+
+            if outputs[0] == 0:
+                grid[j][i] = asciichars['.']
+            elif outputs[0] == 1:
+                grid[j][i] = asciichars['#']
+                n_points += 1
+
+    # loop over the grid again and search for 100x100 grids with just beam
+    loc_i = loc_j = 0
+    found = False
+    for j in range(1000,size-100):
+        print("grid row ", j)
+        for i in range(size-100):
+            sum = 0
+            if grid[j][i] == asciichars['#']:
+                emptyfound = False
+                for y in range(j,j+100):
+                    for x in range(i,i+100):
+                        if grid[y][x] == asciichars['#']:
+                            sum += 1
+                        else:
+                            emptyfound = True
+                            break
+
+                    if emptyfound:
+                        break
+
+            if sum == 10000:
+                loc_i = i
+                loc_j = j
+                found = True
+                break
+
+        if found:
+            break
+
+    answer = (loc_i * 10000) + loc_j
 
     return answer
 
 
 relative_base = 0
-print(len(input_data), input_data)
 answer1 = part1(input_data, relative_base)
 print('Part1: ', answer1)
 print('\n')
