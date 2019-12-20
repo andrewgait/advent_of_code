@@ -239,15 +239,17 @@ def part2(input_data, relative_base):
     print(beam_sizes)
 
     op_pos = 0
-    # looking for a complete 100x100 grid of tractor beam, so 1000x1000 might be big enough?
-    size = 600
+    # looking for a complete 100x100 grid of tractor beam, so 1000x1000 might be
+    # big enough? by a little bit of guesswork based on the above beam size
+    # calcs I found that it needed to be ~ 1100x1100
+    size = 1100
     grid = np.zeros((size,size), dtype=np.int32)
 
     n_points = 0
 
-    # make the grid
-    for j in range(500,size):
-        print("make grid row ", j)
+    # make the grid - no need to make all of it, just start from a "sensible" place
+    for j in range(800,size):
+#         print("make grid row ", j)
         n_beams = 0
         for i in range(size):
             input = [i, j]
@@ -261,14 +263,14 @@ def part2(input_data, relative_base):
                 n_points += 1
                 n_beams += 1
 
-        print("this row has ", n_beams, " beams")
+#         print("this row has ", n_beams, " beams")
 
 
     # loop over the grid again and search for 100x100 grids with just beam
     loc_i = loc_j = 0
     found = False
-    for j in range(500,size-100):
-        print("grid row ", j)
+    for j in range(800,size-100):
+#         print("searching on grid row ", j)
         for i in range(size-100):
             sum = 0
             if grid[j][i] == asciichars['#']:
