@@ -142,9 +142,11 @@ def is_ZZ(i, j):
     return (portal_grid[j][i] == 'ZZ')
 
 def is_portal(i, j):
-    if (is_AA) or (is_ZZ):
+    if (is_AA(i,j)) or (is_ZZ(i,j)):
+        print(" not portal at ", i, j, portal_grid[j][i], is_AA(i,j), is_ZZ(i,j))
         return False
     else:
+        print(" portal at ", i, j, portal_grid[j][i], is_AA(i,j), is_ZZ(i,j))
         return True
 
 def move_robot(grid, distance, robot_x, robot_y, input):
@@ -153,13 +155,47 @@ def move_robot(grid, distance, robot_x, robot_y, input):
     if input == 1:  # NORTH
         grid_north = grid[robot_y-1][robot_x]
         # grid_north is a wall or a portal
-        if ((grid_north == asciichars['#']) or is_uppercase(grid_north)):
+        if (grid_north == asciichars['#']):
             # go EAST
             output = 4
+        elif is_uppercase(grid_north):
             if is_portal(robot_x, robot_y-1):
                 (robot_x, robot_y) = portal_dict[(robot_x, robot_y-1)]
                 # where do we go next?
                 new_direction = direction_dict[(robot_x, robot_y)]
+                print('new_direction: ', new_direction, robot_x, robot_y)
+                if new_direction == 1: # NORTH
+                    robot_y -= 1
+                    output = 3 # WEST
+                elif new_direction == 2: # SOUTH
+                    robot_y += 1
+                    output = 4 # EAST
+                elif new_direction == 3: # WEST
+                    robot_x -= 1
+                    output = 2 # SOUTH
+                elif new_direction == 4: # EAST
+                    robot_x += 1
+                    output = 1 # NORTH
+            else:
+                output=4
+        else: # grid_north is empty (.) or a key
+            if (distance[robot_y-1][robot_x] == 0):
+                distance[robot_y-1][robot_x] = distance[robot_y][robot_x]+1
+            robot_y -= 1
+            # go WEST
+            output = 3
+    elif input == 2:  # SOUTH
+        grid_south = grid[robot_y+1][robot_x]
+        # grid_south is a wall or a door
+        if (grid_south == asciichars['#']):
+            # go WEST
+            output = 3
+        elif is_uppercase(grid_south):
+            if is_portal(robot_x, robot_y+1):
+                (robot_x, robot_y) = portal_dict[(robot_x, robot_y+1)]
+                # where do we go next?
+                new_direction = direction_dict[(robot_x, robot_y)]
+                print('new_direction: ', new_direction, robot_x, robot_y)
                 print('new_direction: ', new_direction)
                 if new_direction == 1: # NORTH
                     robot_y -= 1
@@ -173,79 +209,26 @@ def move_robot(grid, distance, robot_x, robot_y, input):
                 elif new_direction == 4: # EAST
                     robot_x += 1
                     output = 1 # NORTH
-        else: # grid_north is empty (.) or a key
-            if (distance[robot_y-1][robot_x] == 0):
-                distance[robot_y-1][robot_x] = distance[robot_y][robot_x]+1
-            grid[robot_y][robot_x] = asciichars['.']
-            robot_y -= 1
-            # go WEST
-            output = 3
-    if input == 2:  # SOUTH
-        grid_south = grid[robot_y+1][robot_x]
-        # grid_south is a wall or a door
-        if ((grid_south == asciichars['#']) or (is_uppercase(grid_south))):
-            # go WEST
-            output = 3
-            if is_portal(robot_x, robot_y-1):
-                (robot_x, robot_y) = portal_dict[(robot_x, robot_y-1)]
-                # where do we go next?
-                new_direction = direction_dict[(robot_x, robot_y)]
-                print('new_direction: ', new_direction)
-                if new_direction == 1: # NORTH
-                    robot_y -= 1
-                    output = 3 # WEST
-                elif new_direction == 2: # SOUTH
-                    robot_y += 1
-                    output = 4 # EAST
-                elif new_direction == 3: # WEST
-                    robot_x -= 1
-                    output = 2 # SOUTH
-                elif new_direction == 4: # EAST
-                    robot_x += 1
-                    output = 1 # NORTH        else: # grid_south is empty (.) or a key
+            else:
+                output = 3
+        else: # grid_south is empty (.) or a key
             if (distance[robot_y+1][robot_x] == 0):
                 distance[robot_y+1][robot_x] = distance[robot_y][robot_x]+1
             robot_y += 1
             # go EAST
             output = 4
-    if input == 3:  # WEST
+    elif input == 3:  # WEST
         grid_west = grid[robot_y][robot_x-1]
         # grid_west is a wall or a door
-        if ((grid_west == asciichars['#']) or (is_uppercase(grid_west))):
+        if (grid_west == asciichars['#']):
             # go NORTH
             output = 1
-            if is_portal(robot_x, robot_y-1):
-                (robot_x, robot_y) = portal_dict[(robot_x, robot_y-1)]
+        elif is_uppercase(grid_west):
+            if is_portal(robot_x-1, robot_y):
+                (robot_x, robot_y) = portal_dict[(robot_x-1, robot_y)]
                 # where do we go next?
                 new_direction = direction_dict[(robot_x, robot_y)]
-                print('new_direction: ', new_direction)
-                if new_direction == 1: # NORTH
-                    robot_y -= 1
-                    output = 3 # WEST
-                elif new_direction == 2: # SOUTH
-                    robot_y += 1
-                    output = 4 # EAST
-                elif new_direction == 3: # WEST
-                    robot_x -= 1
-                    output = 2 # SOUTH
-                elif new_direction == 4: # EAST
-                    robot_x += 1
-                    output = 1 # NORTH        else: # grid_west is empty (.) or a key
-            if (distance[robot_y][robot_x-1] == 0):
-                distance[robot_y][robot_x-1] = distance[robot_y][robot_x]+1
-            robot_x -= 1
-            # go SOUTH
-            output = 2
-    if input == 4:  # EAST
-        grid_east = grid[robot_y][robot_x+1]
-        # grid_east is a wall or a door
-        if ((grid_east == asciichars['#']) or (is_uppercase(grid_east))):
-            # go SOUTH
-            output = 2
-            if is_portal(robot_x, robot_y-1):
-                (robot_x, robot_y) = portal_dict[(robot_x, robot_y-1)]
-                # where do we go next?
-                new_direction = direction_dict[(robot_x, robot_y)]
+                print('new_direction: ', new_direction, robot_x, robot_y)
                 print('new_direction: ', new_direction)
                 if new_direction == 1: # NORTH
                     robot_y -= 1
@@ -259,6 +242,40 @@ def move_robot(grid, distance, robot_x, robot_y, input):
                 elif new_direction == 4: # EAST
                     robot_x += 1
                     output = 1 # NORTH
+            else:
+                output = 1
+        else: # grid_west is empty (.) or a key
+            if (distance[robot_y][robot_x-1] == 0):
+                distance[robot_y][robot_x-1] = distance[robot_y][robot_x]+1
+            robot_x -= 1
+            # go SOUTH
+            output = 2
+    elif input == 4:  # EAST
+        grid_east = grid[robot_y][robot_x+1]
+        # grid_east is a wall or a door
+        if (grid_east == asciichars['#']):
+            # go SOUTH
+            output = 2
+        elif is_uppercase(grid_east):
+            if is_portal(robot_x+1, robot_y):
+                (robot_x, robot_y) = portal_dict[(robot_x+1, robot_y)]
+                # where do we go next?
+                new_direction = direction_dict[(robot_x, robot_y)]
+                print('new_direction: ', new_direction, robot_x, robot_y)
+                if new_direction == 1: # NORTH
+                    robot_y -= 1
+                    output = 3 # WEST
+                elif new_direction == 2: # SOUTH
+                    robot_y += 1
+                    output = 4 # EAST
+                elif new_direction == 3: # WEST
+                    robot_x -= 1
+                    output = 2 # SOUTH
+                elif new_direction == 4: # EAST
+                    robot_x += 1
+                    output = 1 # NORTH
+            else:
+                output = 4
         else: # grid_north is empty (.) or a key
             if (distance[robot_y][robot_x+1] == 0):
                 distance[robot_y][robot_x+1] = distance[robot_y][robot_x]+1
@@ -266,8 +283,7 @@ def move_robot(grid, distance, robot_x, robot_y, input):
             # go SOUTH
             output = 1
 
-    # robot might have moved
-    grid[robot_y][robot_x] = asciichars['@']
+    # robot might have moved    grid[robot_y][robot_x] = asciichars['@']
 
     return grid, distance, robot_x, robot_y, output
 
@@ -281,7 +297,7 @@ def make_distance_map(grid, portal_grid, start_x, start_y):
     input = 1 # start by going north
     # distance grid starts at 1 at current location
     distance[start_y][start_x] = 1
-    grid[start_y][start_x] = asciichars['@']
+    # grid[start_y][start_x] = asciichars['@']
 
     while True:
         # move the robot
