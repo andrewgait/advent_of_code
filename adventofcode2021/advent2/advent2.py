@@ -11,12 +11,42 @@ for line in input:
 def part1():
 
     answer = 0
+    horizontal = 0
+    depth = 0
+    n_inputs = len(input_array)
+    for n in range(n_inputs):
+        commands = input_array[n].split(" ")
+        if commands[0] == "forward":
+            horizontal += int(commands[1])
+        elif commands[0] == "down":
+            depth += int(commands[1])
+        elif commands[0] == "up":
+            depth -= int(commands[1])
+
+    print(horizontal, depth)
+    answer = horizontal * depth
 
     return answer
 
 def part2():
 
     answer = 0
+    horizontal = 0
+    depth = 0
+    aim = 0
+    n_inputs = len(input_array)
+    for n in range(n_inputs):
+        commands = input_array[n].split(" ")
+        if commands[0] == "forward":
+            horizontal += int(commands[1])
+            depth += aim * int(commands[1])
+        elif commands[0] == "down":
+            aim += int(commands[1])
+        elif commands[0] == "up":
+            aim -= int(commands[1])
+
+    print(horizontal, depth)
+    answer = horizontal * depth
 
     return answer
 
