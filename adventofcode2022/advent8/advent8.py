@@ -1,4 +1,5 @@
 # Advent of code 2022, day 8
+import numpy as np
 
 # open file
 input = open("advent8_input.txt", "r")
@@ -85,13 +86,14 @@ def scenic_score(tree_array, x, y, nx, ny):
 
 def part2():
 
-    tree_array = []
+    tree_array = np.zeros(shape=(len(input_array),
+                                 len(input_array[0])-1), dtype=int)
 
+    m = 0
     for input_line in input_array:
-        tree_line= []
         for n in range(len(input_line)-1):
-            tree_line.append(int(input_line[n]))
-        tree_array.append(tree_line)
+            tree_array[m][n] = int(input_line[n])
+        m += 1
 
     print(tree_array)
     ny = len(tree_array)
