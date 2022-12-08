@@ -1,5 +1,6 @@
 # Advent of code 2022, day 8
 import numpy as np
+import matplotlib.pyplot as plt
 
 # open file
 input = open("advent8_input.txt", "r")
@@ -98,13 +99,19 @@ def part2():
     print(tree_array)
     ny = len(tree_array)
     nx = len(tree_array[0])
+    score_array = np.zeros(shape=(ny,nx), dtype=int)
     max_score = 0
     # The edges all score 0 so don't bother with them
     for y in range(1,ny-1):
         for x in range(1,nx-1):
             score = scenic_score(tree_array, x, y, nx, ny)
+            score_array[y][x] = score
             if score > max_score:
                 max_score = score
+
+    plt.imshow(score_array, cmap='gist_stern')
+    plt.colorbar()
+    plt.show()
 
     answer = max_score
 
