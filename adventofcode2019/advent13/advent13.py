@@ -3,6 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
+plt.rc('animation', ffmpeg_path='/opt/local/bin/ffmpeg')
+
 # open file
 input = open("advent13_input.txt", "r")
 # input = open("advent13_test_input.txt", "r")
