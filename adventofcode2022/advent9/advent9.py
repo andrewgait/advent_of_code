@@ -20,7 +20,7 @@ def move_tail(currentH, currentT):
     if ((abs(manhattanX(currentH, currentT)) > 1) or
         (abs(manhattanY(currentH, currentT)) > 1)):
 
-        # It's now possible for both manhattans to simultaneously be 2 (or -2)
+        # It's also possible for both manhattans to simultaneously be 2 (or -2)
         if manhattanX(currentH, currentT) == 2 and manhattanY(currentH, currentT) == 2:
             # In this case the tail moves to diagonally below the head
             currentT[0] = currentH[0] - 1
