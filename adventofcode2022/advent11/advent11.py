@@ -305,7 +305,5 @@ def part2():
 
     return answer
 
-    return answer
-
 print("Part 1 answer: ", part1())
 print("Part 2 answer: ", part2())
