@@ -45,15 +45,18 @@ def compare_pairs(left, right):
     else:
         # both integers!
         if left < right:
-            return 1
-        if right > left:
             return -1
+        if right > left:
+            return 1
         if right == left:
             return 0
 
         # I think if we somehow got all the way through here then it's true?
         # return True
 
+    # The problem with this recursion is that you do get here when two lists match
+    # completely and so miss any subsequent lists out
+    # I think there also may be issues with empty lists in this attempt as well
     print("how did I get here")
 
 
