@@ -22,7 +22,7 @@ def compare_pairs(left, right):
         # Both are lists
         print("lengths ", len(left), len(right))
         if len(left) < len(right):
-            return -1
+            return 1
         else:
             n_left = len(left)
             print("n_left ", n_left)
