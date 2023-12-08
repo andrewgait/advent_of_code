@@ -75,7 +75,6 @@ def part2():
     for inst in insts:
         n = 0
 
-        end_in_Z = False
         while (inst[2] != "Z"):
             lr = lr_instructions[n % n_inst]
 
@@ -96,8 +95,8 @@ def part2():
     print(answer)
 
     # Oh wait, LCM is commutative...
-    answer = 1
-    for count_inst in count_insts:
+    answer = count_insts[0]
+    for count_inst in count_insts[1:]:
         answer = math.lcm(answer, count_inst)
 
     return answer
